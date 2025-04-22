@@ -8,7 +8,17 @@ import (
 )
 
 type Config struct {
-	DB_HOST string `env:"DB_HOST"`
+	DB DBConfig
+}
+
+type DBConfig struct {
+	Host     string `env:"DB_HOST,required"`
+	User     string `env:"DB_USER,required"`
+	Password string `env:"DB_PASSWORD,required"`
+	DBName   string `env:"DB_NAME,required"`
+	Port     int    `env:"DB_PORT" envDefault:"5432"`
+	SSLMode  string `env:"DB_SSLMODE" envDefault:"disable"`
+	TimeZone string `env:"DB_TIMEZONE" envDefault:"UTC"`
 }
 
 // Load config from .env
