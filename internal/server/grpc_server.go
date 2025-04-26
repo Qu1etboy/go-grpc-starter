@@ -5,7 +5,7 @@ import (
 	"net"
 
 	"github.com/qu1etboy/go-grpc-starter/config"
-	"github.com/qu1etboy/go-grpc-starter/gen/proto"
+	"github.com/qu1etboy/go-grpc-starter/internal/gen/proto"
 	"google.golang.org/grpc"
 	"gorm.io/gorm"
 

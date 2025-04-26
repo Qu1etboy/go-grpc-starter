@@ -4,8 +4,7 @@ import (
 	"log"
 
 	"github.com/qu1etboy/go-grpc-starter/config"
-	"github.com/qu1etboy/go-grpc-starter/db"
-	"github.com/qu1etboy/go-grpc-starter/internal/entity"
+	"github.com/qu1etboy/go-grpc-starter/internal/db"
 	"github.com/qu1etboy/go-grpc-starter/internal/server"
 )
 
@@ -16,8 +15,6 @@ func main() {
 		log.Fatalln("failed to connect to database", err)
 		return
 	}
-
-	database.AutoMigrate(&entity.User{})
 
 	server.StartGrpcServer(database, cfg)
 }

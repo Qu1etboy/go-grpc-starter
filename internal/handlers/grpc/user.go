@@ -3,7 +3,7 @@ package grpc
 import (
 	"context"
 
-	"github.com/qu1etboy/go-grpc-starter/gen/proto"
+	"github.com/qu1etboy/go-grpc-starter/internal/gen/proto"
 	userrepository "github.com/qu1etboy/go-grpc-starter/internal/repository/user_repository"
 )
 
