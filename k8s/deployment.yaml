@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-grpc-starter
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-grpc-starter
+  template:
+    metadata:
+      labels:
+        app: go-grpc-starter
+    spec:
+      containers:
+        - name: go-grpc-starter
+          image: qu1etboy/go-grpc-starter:latest
+          ports:
+            - containerPort: 8980
+          envFrom:
+            - configMapRef:
+                name: go-grpc-starter-config
+          env:
+            - name: DB_HOST
+              value: "192.168.1.105"

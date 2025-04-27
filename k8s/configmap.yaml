@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: go-grpc-starter-config
+data:
+  DB_HOST: "192.168.1.105" # Replace with your local IP or database service name
+  DB_USER: "test"
+  DB_PASSWORD: "test"
+  DB_NAME: "go-grpc-starter"
