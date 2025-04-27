@@ -64,3 +64,19 @@ And port forward to access via localhost
 ```sh
 kubectl port-forward svc/go-grpc-starter-service 8980:8980
 ```
+
+## Setup ArgoCD
+
+Create a namespace and apply argocd config then port-forward to port `8080`
+
+```sh
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+Get a password to login with username `admin`
+
+```sh
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
